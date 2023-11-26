@@ -8,12 +8,11 @@ body {
 
 .sentimental-analyser-container {
     text-align: center;
-    margin-bottom: 100px;
 }
 
 .logo img {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
 }
 
 .analyse-bar {
