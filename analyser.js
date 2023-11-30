@@ -1,20 +1,29 @@
-function analyzeText() 
-{
-    var text = document.getElementById("analyse-input").value;
+function analyzeText() {
+    var inputElement = document.getElementById("analyse-input");
+    if (!inputElement) {
+        console.error("Input element not found!");
+        return;
+    }
+    var text = inputElement.value;
     var sentimentResult = performSentimentAnalysis(text);
     displayResultImage(sentimentResult);
 }
 
-function performSentimentAnalysis(text) 
-{
-    if (text.toLowerCase().includes("positive")) {
-        return "happy_image";
-    } else if (text.toLowerCase().includes("negative")) {
-        return "negative_image";
-    } else {
-        return "neutral_image";
+
+function performSentimentAnalysis(text) {
+    const sentimentMap = {
+        "positive": "happy_image",
+        "negative": "negative_image",
+    };
+    const lowerCaseText = text.toLowerCase();
+    for (const [keyword, result] of Object.entries(sentimentMap)) {
+        if (lowerCaseText.includes(keyword)) {
+            return result;
+        }
     }
+    return "neutral_image";
 }
+
 
 function displayResultImage(sentimentResult) {
     var imageContainer = document.getElementById("imageContainer");
