@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #result-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sentiment Analysis Result</h1>
+
+    <div id="input-text-container">
+        <h3>Inputted Text:</h3>
+        <p id="input-text"></p>
+    </div>
+
+    <div id="result-container">
+        <h3>Analysis Result:</h3>
+        <p id="result"></p>
+    </div>
+
+    
+    <script>
+        // Assume you have passed the input_text and result as context variables from Django view
+        var inputText = '{{ input_text }}'; // Replace with the actual context variable
+        var result = '{{ result }}'; // Replace with the actual context variable
+
+        document.getElementById('input-text').innerText = inputText;
+        document.getElementById('result').innerText = result;
+    </script>
+</body>
+</html>

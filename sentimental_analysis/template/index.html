@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/analyser.js' %}"></script>
+    <title>Sentimental Analysis</title>
+</head>
+<body>
+    <div class="sentimental-analyser-container">
+        <div class="logo">
+            <img src="{% static 'img/logo.svg' %}" alt="sentimental analyser Logo">
+        </div>
+        <div class="analyse-bar" >
+            <form id="analyse-form" method="post" action="{% url 'sentimental_analysis' %}">
+                {% csrf_token %}
+                <textarea id="analyse-input" name="q" rows="5" cols="50" placeholder="Write/Paste anything"></textarea>
+                <div class="search-buttons">
+                    <button type="submit" onclick="getTextAreaInput()">Analyse</button>
+                </div>
+            </form>
+            <div id="imageContainer" class="hidden">
+                <img id="resultImage" alt="sentimental Analysis Result">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
