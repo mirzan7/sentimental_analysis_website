@@ -14,7 +14,7 @@
             <img src="{% static 'img/logo.svg' %}" alt="sentimental analyser Logo">
         </div>
         <div class="analyse-bar" >
-            <form id="analyse-form" method="post" action="{% url 'sentimental_analysis' %}">
+            <form id="analyse-form" method="post" action="{% url 'result' %}">
                 {% csrf_token %}
                 <textarea id="analyse-input" name="q" rows="5" cols="50" placeholder="Write/Paste anything"></textarea>
                 <div class="search-buttons">

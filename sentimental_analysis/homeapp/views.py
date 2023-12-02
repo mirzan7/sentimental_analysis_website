@@ -8,7 +8,7 @@ def index(request):
 
 def sentimental_analysis(request):
     if request.method == "POST":
-        text_input = request.POST.get('text_input', '')
+        text_input = request.POST.get('q', '')
         analysis = TextBlob(text_input)
         sentiment = analysis.sentiment.polarity
         
